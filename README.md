@@ -1,6 +1,6 @@
 Maze generator using Kruskal's algorithm
 Video Demo:
-Description: https://keanekk603.github.io/p5js-game-score/ (link to my online game).
+Description: https://keanekk603.github.io/p5js-game-score/ (link to my online game). 
 1. This maze generator uses the Kruskal's algorithm to generate the maze. I utilised this instead of depth first search alogrithm + backtracking because i feel like this algorithm creates harder mazes as compared to that. moreover, I took inspiration and had to learn multiplie new concepts scuh as object oriented programming. this was inspired by a video from The Coding Train where he uses depth first search and back tracking algorithnm to create the maze. 
 2. used an open sourced library p5js to draw grids and circles etc, through this i have learn some basics of object orientated programming. I had to learn the syntax and functionalities of p5js and I feel it is extremely useful for building creative websites and designs as compared to normal java script library and I will definitely explore more. 
 4. Moreover, I implemented a game like function where it starts from the top left and ends in teh top right using wasd keys to move around, and resets once it hits the bottom right. 
@@ -22,9 +22,11 @@ draw function()
 
 index function()
 - gives the index of the cell the id
+- 
 
 implementation of algorithm
 - first we loop throguh each cell in the grid and check is right neighbour and bottom neighbour, if there is a wall it adds a list of (CellA.id, CellB.id, "horizontal/vertical") to a array called walls =[].
 - once the array of walls is done we choose a random wall from that array walls and we remove the wall between cell a and cell b
-- once that is done we change the id of cell b to be === cell a. this conditions ensures that the condition if (CellA.id != CellB.id) is not called. we join the cells together essentially, by making the id of cella and cell b the same. then we remove that walls from the array walls= [] throguh the splice. this also ensures that there are no disjointed rooms a bug which i was stuck on for quite a while. it goes throguh every single cell until it at least connected to one another ensuring no disjointed rooms
+- once that is done we change the id of cell b to be === cell a. this conditions ensures that the condition if (CellA.id != CellB.id) is not called. we join the cells together essentially, by making the id of cella and cell b the same. then we remove that walls from the array walls= [] throguh the splice. this also ensures that there are no disjointed rooms a bug which i was stuck on for quite a while. it goes throguh every single cell until it at least connected to one another ensuring no disjointed rooms.
+- note that in the walls array, the comparison is made for every single wall there is on the map and the index function ensures that there is no cells being found called outside the grid.
 - we then repeat this step throguh until wall length = 0 because the draw function is called 60 times per second there is no need to write any loops.
