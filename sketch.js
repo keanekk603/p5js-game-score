@@ -3,7 +3,6 @@ var w = 20;
 var grid = [];
 var walls = [];
 var startCell, endCell, playerCell, oldCell;
-var score = 0;
 
 function setup() {
     createCanvas(400, 400);
@@ -51,12 +50,6 @@ function draw() {
     noStroke();
     circle(playerCell.i * w + w / 2, playerCell.j * w + w / 2, w * 0.6);
 
-    fill(255);
-    noStroke();
-    textSize(16);
-    textAlign(LEFT, TOP);
-    text("Score: " + score)
-
     if (walls.length > 0) {
         random_index = floor(random(0, walls.length - 1));
         current_wall = walls[random_index];
@@ -80,7 +73,6 @@ function draw() {
         walls.splice(random_index, 1);
     }
     if (playerCell === endCell) {
-        score += 1;
         console.log("You've WON");
         grid = [];
         walls = [];
